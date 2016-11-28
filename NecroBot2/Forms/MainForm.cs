@@ -16,15 +16,15 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using PokemonGo.RocketAPI.Helpers;
-using PoGo.NecroBot.Logic.Mini;
-using PoGo.NecroBot.Logic.Mini.Common;
-using PoGo.NecroBot.Logic.Mini.Event;
-using PoGo.NecroBot.Logic.Mini.Logging;
-using PoGo.NecroBot.Logic.Mini.PoGoUtils;
-using PoGo.NecroBot.Logic.Mini.Service;
-using PoGo.NecroBot.Logic.Mini.State;
-using PoGo.NecroBot.Logic.Mini.Tasks;
-using PoGo.NecroBot.Logic.Mini.Utils;
+using PoGo.NecroBot.Logic.PoGoUtils;
+using PoGo.NecroBot.Logic.Forms_Gui;
+using PoGo.NecroBot.Logic.Forms_Gui.Common;
+using PoGo.NecroBot.Logic.Forms_Gui.Event;
+using PoGo.NecroBot.Logic.Forms_Gui.Logging;
+using PoGo.NecroBot.Logic.Forms_Gui.Service;
+using PoGo.NecroBot.Logic.Forms_Gui.State;
+using PoGo.NecroBot.Logic.Forms_Gui.Tasks;
+using PoGo.NecroBot.Logic.Forms_Gui.Utils;
 using NecroBot2.Helpers;
 using NecroBot2.Models;
 using POGOProtos.Data;
@@ -32,7 +32,7 @@ using POGOProtos.Inventory;
 using POGOProtos.Inventory.Item;
 using POGOProtos.Map.Fort;
 using POGOProtos.Map.Pokemon;
-using Logger = PoGo.NecroBot.Logic.Mini.Logging.Logger;
+using Logger = PoGo.NecroBot.Logic.Forms_Gui.Logging.Logger;
 
 namespace NecroBot2.Forms
 {
@@ -181,12 +181,6 @@ namespace NecroBot2.Forms
 
             _session.EventDispatcher.EventReceived += evt => listener.Listen(evt, _session);
             _session.EventDispatcher.EventReceived += evt => aggregator.Listen(evt, _session);
-
-            if (_settings.UseWebsocket)
-            {
-                var websocket = new WebSocketInterface(_settings.WebSocketPort, _session);
-                _session.EventDispatcher.EventReceived += evt => websocket.Listen(evt, _session);
-            }
 
             _machine.SetFailureState(new LoginState());
             Logger.SetLoggerContext(_session);
