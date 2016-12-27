@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Windows.Forms;
-using PoGo.NecroBot.Logic.Mini.Logging;
-using PoGo.NecroBot.Logic.Mini.State;
-using PoGo.NecroBot.Logic.Mini.Utils;
+using PoGo.NecroBot.Logic.Forms_Gui.Logging;
+using PoGo.NecroBot.Logic.Forms_Gui.State;
+using PoGo.NecroBot.Logic.Forms_Gui.Utils;
 
 namespace NecroBot2.Helpers
 {
@@ -46,8 +46,22 @@ namespace NecroBot2.Helpers
 
                         if (strStatus.ToLower().Contains("disable"))
                         {
+                            DialogResult result = MessageBox.Show(strReason, Application.ProductName + " - Use Old API detected", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            switch (result)
+                            {
+                                case DialogResult.Yes:
+                                    {
+                                        DialogResult result1 = MessageBox.Show("!!! You risk permanent BAN !!!\n\n " + Application.ProductName + " is not responsible for any banned account.\n\n Are you sure you want to continue?", Application.ProductName + " -Are you sure??", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                        switch (result1)
+                                        {
+                                            case DialogResult.No: { Application.Exit(); break; }
+                                        }
+                                        break;
+                                    }
+                                case DialogResult.No: { Application.Exit(); break; }
+                            }
                             Logger.Write(strReason + $"\n", LogLevel.Warning);
-                            Logger.Write("The bot will now close.", LogLevel.Error);
+                            Logger.Write("The robot should be closed.\n", LogLevel.Warning);
                             return true;
                         }
                     }

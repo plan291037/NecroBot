@@ -242,7 +242,7 @@ namespace NecroBot2.Forms
             this.pkmnName.AspectName = "PokemonId";
             this.pkmnName.AspectToStringFormat = "";
             this.pkmnName.Text = "Name";
-            this.pkmnName.Width = 120;
+            this.pkmnName.Width = 60;
             // 
             // pkmnCP
             // 
@@ -279,31 +279,31 @@ namespace NecroBot2.Forms
             // 
             this.pkmnCandy.AspectName = "Candy";
             this.pkmnCandy.Text = "Candy";
-            this.pkmnCandy.Width = 46;
+            this.pkmnCandy.Width = 40;
             // 
             // pkmnCandyToEvolve
             // 
-            this.pkmnCandyToEvolve.AspectName = "CandyToEvolve";
+            this.pkmnCandyToEvolve.AspectName = "Candy";
             this.pkmnCandyToEvolve.Text = "CtE";
-            this.pkmnCandyToEvolve.Width = 31;
+            this.pkmnCandyToEvolve.Width = 20;
             // 
             // pkmnEvolveTimes
             // 
             this.pkmnEvolveTimes.AspectName = "EvolveTimes";
-            this.pkmnEvolveTimes.Text = "# Evolves";
-            this.pkmnEvolveTimes.Width = 66;
+            this.pkmnEvolveTimes.Text = "Evolves";
+            this.pkmnEvolveTimes.Width = 20;
             // 
             // pkmnNickname
             // 
             this.pkmnNickname.AspectName = "Nickname";
             this.pkmnNickname.Text = "Nickname";
-            this.pkmnNickname.Width = 80;
+            this.pkmnNickname.Width = 40;
             // 
             // pkmnLevel
             // 
             this.pkmnLevel.AspectName = "GetLv";
             this.pkmnLevel.Text = "Lv";
-            this.pkmnLevel.Width = 50;
+            this.pkmnLevel.Width = 40;
             // 
             // pkmnMove1
             // 
